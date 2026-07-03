@@ -126,6 +126,34 @@ body {
    NAVBAR
 =========================== */
 
+/* .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 72px;
+
+    display: flex;
+    align-items: center;
+
+    background: var(--nav-glass);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+    border-bottom: 1px solid var(--nav-border);
+
+    box-shadow:
+        0 8px 24px rgba(0, 0, 0, 0.12),
+        inset 0 1px 0 rgba(255, 255, 255, 0.04);
+
+    z-index: 1000;
+
+    transition: all 0.35s ease;
+}
+
+/* =========================
+   NAVBAR BASE (GLASS)
+========================= */
 .navbar {
     position: fixed;
     top: 0;
@@ -151,24 +179,23 @@ body {
     transition: all 0.35s ease;
 }
 
-/* ===========================
+/* =========================
    CONTAINER
-=========================== */
-
+========================= */
 .nav-container {
     width: 90%;
     max-width: 1200px;
     margin: 0 auto;
+    position: relative;
 
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
-/* ===========================
-   NAVIGATION LINKS
-=========================== */
-
+/* =========================
+   NAV LINKS (DESKTOP)
+========================= */
 .nav-links {
     display: flex;
     align-items: center;
@@ -199,12 +226,10 @@ body {
                 transform .25s ease;
 }
 
-/* Underline */
-
+/* underline */
 .nav-links a::after {
     content: "";
     position: absolute;
-
     left: 0;
     bottom: -8px;
 
@@ -212,14 +237,12 @@ body {
     height: 2px;
 
     background: var(--accent);
-
     border-radius: 999px;
 
     transition: width .35s ease;
 }
 
-/* Hover */
-
+/* hover */
 .nav-links a:hover {
     color: var(--accent);
     transform: translateY(-2px);
@@ -229,14 +252,94 @@ body {
     width: 100%;
 }
 
-/* ===========================
+/* =========================
    ACTIONS
-=========================== */
-
+========================= */
 .nav-actions {
     display: flex;
     align-items: center;
     gap: 1rem;
+}
+
+/* hamburger fix */
+.nav-toggle{
+    display: none;
+    font-size: 1.7rem;
+    cursor: pointer;
+    color: var(--nav-link);
+
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+
+/* =========================
+   TABLET / MOBILE
+========================= */
+/* mobile navbar fix */
+@media (max-width: 768px){
+
+    .navbar{
+        height: auto;
+        padding: 14px 0;
+    }
+
+    .nav-container{
+        height: 60px;
+        display: flex;
+        align-items: center;
+    }
+
+    /* show hamburger */
+    .nav-toggle{
+        display: block;
+    }
+
+    /* hide menu initially */
+    .nav-links{
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+
+        flex-direction: column;
+        align-items: center;
+
+        gap: 16px;
+        padding: 18px 0;
+
+        background: var(--nav-glass);
+        backdrop-filter: blur(20px);
+
+        transform: translateY(-130%);
+        transition: 0.35s ease;
+
+        z-index: 999;
+    }
+
+    /* active menu */
+    .nav-links.active{
+        transform: translateY(0);
+    }
+
+    .nav-actions{
+        margin-right: 45px; /* space from hamburger */
+    }
+}
+/* =========================
+   SMALL PHONES
+========================= */
+@media (max-width: 480px) {
+
+    .nav-links {
+        gap: 14px;
+    }
+
+    .nav-links a {
+        font-size: 0.9rem;
+    }
 }
 
 /* ===========================
@@ -461,6 +564,95 @@ body {
   .accent-line {
     margin: 20px auto;
   }
+}
+
+@media (max-width:992px){
+
+  .about-grid{
+    grid-template-columns:1fr;
+    gap:60px;
+    text-align:center;
+  }
+
+  .about-visual-column{
+    border-right:none;
+    padding-right:0;
+    margin-bottom:0;
+    justify-content:center;
+    align-items:center;
+  }
+
+  .outline-wrapper{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+  }
+
+  .giant-outline{
+    font-size:4.5rem;
+    line-height:1;
+  }
+
+  .accent-line{
+    margin:20px auto;
+  }
+
+  .about-text-column{
+    padding:0;
+  }
+
+  .section-tag{
+    margin:0 auto 18px;
+  }
+
+  .section-title{
+    font-size:2.5rem;
+  }
+
+  .about-description{
+    text-align:center;
+  }
+
+  .about-footer-link{
+    justify-content:center;
+  }
+
+}
+
+@media (max-width:768px){
+
+  .about-section{
+    padding:90px 0;
+  }
+
+  .giant-outline{
+    font-size:3.5rem;
+  }
+
+  .section-title{
+    font-size:2rem;
+  }
+
+  .about-description p{
+    font-size:1rem;
+    line-height:1.8;
+  }
+
+}
+@media (max-width:480px){
+
+  .giant-outline{
+    font-size:2.7rem;
+  }
+
+  .section-title{
+    font-size:1.7rem;
+  }
+
+  .about-description p{
+    font-size:0.95rem;
+  }
+
 }
 
 .skills-wrapper {
