@@ -73,7 +73,6 @@ This portfolio highlights my technical journey through projects, hackathons, int
 
 ---
 
-
 ## 📄 Resume
 
 My latest resume is available directly from the portfolio website.
