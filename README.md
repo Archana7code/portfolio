@@ -71,7 +71,6 @@ This portfolio highlights my technical journey through projects, hackathons, int
 
 ![alt text](image.png)
 
-
 ---
 
 ## 📄 Resume
